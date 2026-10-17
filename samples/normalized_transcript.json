@@ -1,0 +1,5 @@
+[
+  {"role": "agent", "text": "Hi, this is Ian's call screener, an AI assistant. Who's calling and why?"},
+  {"role": "caller", "text": "This is Dr. Lee's office calling about your appointment on Tuesday."},
+  {"role": "agent", "text": "Thanks. One moment while I check."}
+]

@@ -1,0 +1,2 @@
+{"id": "example_1", "caller_number": "+15550000001", "transcript": [{"role": "caller", "text": "This is the IRS. Pay with gift cards now."}], "label": "scam"}
+{"id": "example_2", "caller_number": "+15550000002", "transcript": [{"role": "caller", "text": "Dr. Lee's office calling about Tuesday."}], "label": "legit"}

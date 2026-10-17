@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: scam-screener-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: TOOL_SHARED_SECRET
+        sync: false
+      - key: ELEVENLABS_WEBHOOK_SECRET
+        sync: false
+      - key: PHOTON_API_KEY
+        sync: false
+      - key: PHOTON_PROJECT_ID
+        sync: false
+      - key: PHOTON_AGENT_USER_ID
+        sync: false
+      - key: OWNER_PHONE
+        sync: false
+      - key: CHALK_ROUTER_URL
+        sync: false
+      - key: CHALK_API_KEY
+        sync: false
+      - key: CHALK_ENV_ID
+        sync: false
+      - key: SCORER_MODEL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: STUB_DECISION
+        value: block
