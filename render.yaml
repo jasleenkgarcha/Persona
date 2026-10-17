@@ -2,12 +2,16 @@ services:
   - type: web
     name: scam-screener-backend
     runtime: python
+    # free sleeps after 15 min idle (~60s wake), which breaks a mid-call
+    # check_caller. Upgrade to 0.5c-512mb in the dashboard before live tests.
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
+      # Matches the local venv this was tested on and Render's current default.
       - key: PYTHON_VERSION
-        value: 3.12.7
+        value: 3.14.3
       - key: TOOL_SHARED_SECRET
         sync: false
       - key: ELEVENLABS_WEBHOOK_SECRET
