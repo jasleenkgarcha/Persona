@@ -1,0 +1,64 @@
+{
+  "sample": true,
+  "run_at": "2026-10-18T02:00:00-04:00",
+  "model": "sample-model",
+  "n_total": 60,
+  "accuracy": 0.88,
+  "false_positive_rate": 0.1,
+  "false_negative_rate": 0.09,
+  "flip_rate": 0.07,
+  "misses": [
+    {
+      "id": "smooth_accept",
+      "expected": "scam",
+      "got": "legit",
+      "note": "Agreed to a callback in a calm voice. The number was a throwaway line."
+    },
+    {
+      "id": "partial_midcall",
+      "expected": "scam",
+      "got": "unsure",
+      "note": "Two turns only. The challenge had not been asked yet."
+    }
+  ],
+  "listen_only": {
+    "n_total": 60,
+    "accuracy": 0.72,
+    "false_positive_rate": 0.08,
+    "false_negative_rate": 0.41,
+    "misses": [
+      {
+        "id": "chase_voice",
+        "expected": "scam",
+        "got": "legit",
+        "note": "Sounded like a real fraud desk. The challenge was hidden from this run."
+      },
+      {
+        "id": "mom_clone",
+        "expected": "scam",
+        "got": "unsure",
+        "note": "Family emergency with no safe-word result in view."
+      }
+    ]
+  },
+  "test_the_caller": {
+    "n_total": 60,
+    "accuracy": 0.88,
+    "false_positive_rate": 0.1,
+    "false_negative_rate": 0.09,
+    "misses": [
+      {
+        "id": "smooth_accept",
+        "expected": "scam",
+        "got": "legit",
+        "note": "Agreed to a callback in a calm voice. The number was a throwaway line."
+      },
+      {
+        "id": "partial_midcall",
+        "expected": "scam",
+        "got": "unsure",
+        "note": "Two turns only. The challenge had not been asked yet."
+      }
+    ]
+  }
+}
