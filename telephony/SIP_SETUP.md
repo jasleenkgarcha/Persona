@@ -4,6 +4,8 @@ Source: https://photon.codes/docs/beta/cookbooks/voice/elevenlabs.md (beta platf
 Values below are copied from that cookbook. Anything marked UNVERIFIED we have
 not seen work on our own account yet.
 
+Our number: `+13058108326`
+
 ## Prerequisites (check before touching anything)
 - Photon project with an eligible **SMS number**, WhatsApp number, or
   **dedicated** iMessage line.
@@ -72,9 +74,15 @@ If **Branch** appears, leave **Follow traffic split**.
 
 ## Step 5 - Photon inbound destination
 Profile -> **Inbound calls** -> **Enable inbound** if needed.
-- SIP address / Destination: `sips:sip.rtc.elevenlabs.io:5061`
-- Transport: TLS
+- SIP address / Destination:
+  `sip:+13058108326@sip.rtc.elevenlabs.io:5060;transport=tcp`  <-- CONFIRMED WORKING
+- Transport: TCP
 - SIP credentials: leave empty (matches ElevenLabs inbound config)
+
+> The cookbook specifies `sips:sip.rtc.elevenlabs.io:5061` over TLS. That is NOT
+> what worked on our account. The value above (port 5060, TCP, number in the
+> user part) is what actually connected a call. Kept here so the discrepancy is
+> recorded; try the TLS form only if TCP stops working.
 
 When editing an existing destination, move focus out of the field to save.
 
