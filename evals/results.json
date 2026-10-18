@@ -1,0 +1,143 @@
+{
+  "run_at": "2026-10-18T03:33:12+00:00",
+  "model": "openai/gpt-6.1-sol",
+  "n_total": 123,
+  "accuracy": 1.0,
+  "false_positive_rate": 0.0,
+  "false_negative_rate": 0.0,
+  "misses": [],
+  "split": "heldout",
+  "prompt_version": "v1",
+  "repeats": 3,
+  "n_cases": 41,
+  "max_pass_score": 25,
+  "n_errors": 0,
+  "flip_rate": 0.0,
+  "flipped_cases": [],
+  "by_category": {
+    "ftc_robocall": {
+      "correct": 60,
+      "total": 60,
+      "accuracy": 1.0
+    },
+    "injection": {
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    },
+    "legit": {
+      "correct": 9,
+      "total": 9,
+      "accuracy": 1.0
+    },
+    "partial_midcall": {
+      "correct": 6,
+      "total": 6,
+      "accuracy": 1.0
+    },
+    "scam_bank": {
+      "correct": 6,
+      "total": 6,
+      "accuracy": 1.0
+    },
+    "scam_family": {
+      "correct": 3,
+      "total": 3,
+      "accuracy": 1.0
+    },
+    "scam_government": {
+      "correct": 6,
+      "total": 6,
+      "accuracy": 1.0
+    },
+    "scam_investment": {
+      "correct": 3,
+      "total": 3,
+      "accuracy": 1.0
+    },
+    "scam_robocall": {
+      "correct": 3,
+      "total": 3,
+      "accuracy": 1.0
+    },
+    "too_little_info": {
+      "correct": 3,
+      "total": 3,
+      "accuracy": 1.0
+    },
+    "tricky_legit": {
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1.0
+    }
+  },
+  "by_source": {
+    "ftc": {
+      "correct": 60,
+      "total": 60,
+      "accuracy": 1.0
+    },
+    "synthetic": {
+      "correct": 63,
+      "total": 63,
+      "accuracy": 1.0
+    }
+  },
+  "baseline_keyword": {
+    "accuracy": 0.805,
+    "false_positive_rate": 0.0,
+    "false_negative_rate": 0.235
+  },
+  "threshold_sweep": [
+    {
+      "max_pass_score": 10,
+      "accuracy": 0.959,
+      "false_positive_rate": 0.238,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 15,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 20,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 25,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 30,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 40,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 50,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 60,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    }
+  ],
+  "eval_runner": "chalk",
+  "chalk_suite": "scam-screener"
+}

@@ -1,0 +1,203 @@
+{
+  "run_at": "2026-10-18T01:31:59+00:00",
+  "model": "openai/gpt-6.1-sol",
+  "n_total": 5,
+  "accuracy": 1.0,
+  "false_positive_rate": 0.0,
+  "false_negative_rate": 0.0,
+  "misses": [],
+  "split": "tuning",
+  "prompt_version": "v1",
+  "repeats": 1,
+  "n_cases": 5,
+  "max_pass_score": 25,
+  "n_errors": 0,
+  "flip_rate": 0.0,
+  "flipped_cases": [],
+  "avg_seconds_per_call": 3.19,
+  "by_category": {
+    "scam_bank": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "scam_government": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "scam_tech": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "too_little_info": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "tricky_legit": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    }
+  },
+  "by_source": {
+    "synthetic": {
+      "correct": 5,
+      "total": 5,
+      "accuracy": 1.0
+    }
+  },
+  "baseline_keyword": {
+    "accuracy": 0.8,
+    "false_positive_rate": 1.0,
+    "false_negative_rate": 0.0
+  },
+  "threshold_sweep": [
+    {
+      "max_pass_score": 10,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 15,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 20,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 25,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 30,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 40,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 50,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "max_pass_score": 60,
+      "accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    }
+  ],
+  "eval_runner": "local",
+  "records": [
+    {
+      "id": "ec01_silent_caller",
+      "category": "too_little_info",
+      "source": "synthetic",
+      "split": "tuning",
+      "expected": "block",
+      "decision": "block",
+      "verdict": "unsure",
+      "scam_score": 50,
+      "tactics": [],
+      "reasons": [
+        "The caller said too little to judge who they are or why they called."
+      ],
+      "seconds": 0.0
+    },
+    {
+      "id": "ec03_automated_bank_yes_no",
+      "category": "tricky_legit",
+      "source": "synthetic",
+      "split": "tuning",
+      "expected": "pass",
+      "decision": "pass",
+      "verdict": "legit",
+      "scam_score": 3,
+      "tactics": [
+        "automated_robocall"
+      ],
+      "reasons": [
+        "The alert asks only whether Margaret made an $89 purchase at Target.",
+        "It directs her to call the number on the back of her card if she did not make the purchase.",
+        "It requests no payment, PIN, code, or account details."
+      ],
+      "seconds": 3.69
+    },
+    {
+      "id": "ec04_bank_asks_otp",
+      "category": "scam_bank",
+      "source": "synthetic",
+      "split": "tuning",
+      "expected": "block",
+      "decision": "block",
+      "verdict": "scam",
+      "scam_score": 98,
+      "tactics": [
+        "impersonates_bank",
+        "requests_credentials_or_codes"
+      ],
+      "reasons": [
+        "The caller claimed to be \"Chase security\" and said they blocked a suspicious login.",
+        "The caller asked for a six-digit text code to supposedly verify her identity and unlock her account."
+      ],
+      "seconds": 3.85
+    },
+    {
+      "id": "ec06_social_security_suspended",
+      "category": "scam_government",
+      "source": "synthetic",
+      "split": "tuning",
+      "expected": "block",
+      "decision": "block",
+      "verdict": "scam",
+      "scam_score": 99,
+      "tactics": [
+        "urgency",
+        "requests_personal_id",
+        "impersonates_government_or_police"
+      ],
+      "reasons": [
+        "The caller claims to be the Social Security Administration and says her Social Security number has been suspended.",
+        "The caller asks for her full Social Security number and date of birth to reactivate it.",
+        "The caller demands she confirm those details \"now.\""
+      ],
+      "seconds": 4.21
+    },
+    {
+      "id": "ec07_tech_support",
+      "category": "scam_tech",
+      "source": "synthetic",
+      "split": "tuning",
+      "expected": "block",
+      "decision": "block",
+      "verdict": "scam",
+      "scam_score": 98,
+      "tactics": [
+        "impersonates_company",
+        "remote_access_request"
+      ],
+      "reasons": [
+        "The caller claimed to be from Microsoft's technical department and said her computer was sending virus warnings.",
+        "The caller asked her to download AnyDesk so they could access and fix her computer remotely."
+      ],
+      "seconds": 4.22
+    }
+  ]
+}

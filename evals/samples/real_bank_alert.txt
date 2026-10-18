@@ -1,0 +1,4 @@
+Agent: Hi, you've reached Margaret's line. May I ask who's calling and what it's about?
+Caller: Hi, this is the fraud prevention team at Citizens Bank. We flagged a forty-two dollar purchase at a gas station in Ohio on her debit card and want to make sure it was her.
+Agent: What do you need from her?
+Caller: Nothing over the phone. She can review it in her banking app, or call the number on the back of her card. We will never ask for her PIN or a code.
