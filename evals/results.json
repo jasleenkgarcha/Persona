@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-10-18T02:26:02+00:00",
+  "run_at": "2026-10-18T03:33:12+00:00",
   "model": "openai/gpt-6.1-sol",
   "n_total": 123,
   "accuracy": 1.0,
@@ -14,7 +14,6 @@
   "n_errors": 0,
   "flip_rate": 0.0,
   "flipped_cases": [],
-  "avg_seconds_per_call": 4.24,
   "by_category": {
     "ftc_robocall": {
       "correct": 60,
@@ -92,8 +91,8 @@
   "threshold_sweep": [
     {
       "max_pass_score": 10,
-      "accuracy": 0.951,
-      "false_positive_rate": 0.286,
+      "accuracy": 0.959,
+      "false_positive_rate": 0.238,
       "false_negative_rate": 0.0
     },
     {
@@ -139,5 +138,6 @@
       "false_negative_rate": 0.0
     }
   ],
-  "eval_runner": "local"
+  "eval_runner": "chalk",
+  "chalk_suite": "scam-screener"
 }
