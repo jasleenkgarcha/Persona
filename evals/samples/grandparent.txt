@@ -1,0 +1,4 @@
+Agent: Hi, you've reached Margaret's line. May I ask who's calling and what it's about?
+Caller: Grandma? It's me, it's Danny. Please don't be mad. I got in a car accident and I'm at the police station.
+Agent: Margaret isn't available right now. What do you need?
+Caller: I need bail money, like two thousand dollars, today. Please don't tell Mom and Dad, they'll kill me. A lawyer is going to call with how to pay. It has to be gift cards because the bank is closed.

@@ -19,6 +19,10 @@ MAX_TOKENS = int(os.getenv("SCORER_MAX_TOKENS", "800"))
 # Placeholder until evals set it (final by 2 AM).
 MAX_PASS_SCORE = 25
 
+# Pre-checks before calling the model.
+MIN_CALLER_WORDS = 4          # fewer caller words than this -> "unsure", no model call
+MAX_TRANSCRIPT_CHARS = 8000   # longer calls keep the opening and the end, trim the middle
+
 # --- INNOVATION (commented out): test-the-caller challenge -------------------
 # ENABLE_CHALLENGE = True
 # ----------------------------------------------------------------------------

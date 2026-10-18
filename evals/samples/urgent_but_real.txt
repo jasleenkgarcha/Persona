@@ -1,0 +1,4 @@
+Agent: Hi, you've reached Margaret's line. May I ask who's calling and what it's about?
+Caller: This is the nurse at Mount Auburn Hospital emergency department. Her husband Robert was brought in after a fall. He's stable, but he's asking for her.
+Agent: Is there anything she needs to do?
+Caller: Just come in when she can, main entrance on Mount Auburn Street. She can also call the hospital's main line and ask for the emergency department.
