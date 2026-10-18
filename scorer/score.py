@@ -164,6 +164,8 @@ def _get_client() -> OpenAI:
             base_url=config.CHALK_ROUTER_URL,
             api_key=config.CHALK_API_KEY,
             default_headers={"X-Chalk-Env-Id": config.CHALK_ENV_ID},
+            timeout=30.0,  # SDK default is 600s, which looks like a hang
+            max_retries=0,  # score_call already retries once
         )
     return _client
 
