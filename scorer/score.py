@@ -132,7 +132,7 @@ Return ONLY a JSON object, no other text:
 {{
   "verdict": "scam" | "legit" | "unsure",
   "scam_score": integer 0-100, following the rubric,
-  "reasons": [short strings, each citing what the caller actually said],
+  "reasons": [at most 3short strings, each citing what the caller actually said],
   "tactics": [zero or more of: {", ".join(TACTICS)}],
   "summary": one plain sentence for the person being protected
 }}"""
@@ -164,8 +164,8 @@ def _get_client() -> OpenAI:
             base_url=config.CHALK_ROUTER_URL,
             api_key=config.CHALK_API_KEY,
             default_headers={"X-Chalk-Env-Id": config.CHALK_ENV_ID},
-            timeout=30.0,  # SDK default is 600s, which looks like a hang
-            max_retries=0,  # score_call already retries once
+            timeout=config.SCORER_TIMEOUT,  #fail fast: a caller is waiting on the line
+            max_retries=0,  # our own loop retries once, no hidden SDK retries
         )
     return _client
 
