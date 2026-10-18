@@ -30,9 +30,11 @@ from pathlib import Path
 
 import chalkcompute
 from chalkcompute import scorers
-from dotenv import load_dotenv
-
-load_dotenv()
+try:  # dotenv only exists on your laptop; Chalk's containers don't need it
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 # ---------------------------------------------------------------------------
 # Module scope: Chalk's worker imports this file, so the tasks/scorers must live here.
@@ -91,8 +93,9 @@ def screen_outcome(output: str, expected_decision: str) -> chalkcompute.Evaluati
     )
 
 
-DECISION_MATCH = scorers.json_match(name="decision-match", inputs=("output", "expected"), paths=["decision"])
-VALID_JSON = scorers.json_valid(name="valid-json", inputs=("output",))
+DECISION_MATCH = scorers.json_match(name="decision-match-v2", inputs=("output", "expected"),
+                                    paths=["decision"], image=IMAGE)
+VALID_JSON = scorers.json_valid(name="valid-json-v2", inputs=("output",), image=IMAGE)
 
 
 # ---------------------------------------------------------------------------
@@ -169,7 +172,7 @@ def main():
     for i in range(args.repeat):
         print(f"Run {i + 1}/{args.repeat} ...")
         run = ev.run(metadata={"prompt": args.label, "split": args.split, "repeat": i + 1})
-        run.wait(timeout=900.0)
+        run = run.wait(timeout=900.0)
         records += _records_from_results(run, rows)
 
     baseline = None
@@ -180,7 +183,7 @@ def main():
             metadata={"prompt": "keyword-baseline", "split": args.split}, suite_id=suite.id,
         )
         brun = bev.run(metadata={"prompt": "keyword-baseline", "split": args.split})
-        brun.wait(timeout=600.0)
+        brun = brun.wait(timeout=600.0)
         baseline = summarize(_records_from_results(brun, rows))
 
     s = summarize(records)
@@ -203,7 +206,7 @@ def main():
         "eval_runner": "chalk",
         "chalk_suite": "scam-screener",
     }
-    if not args.no_results:
+    if args.split == "heldout" and not args.no_results:  # only held-out runs replace the reported numbers
         Path(__file__).parent.joinpath("results.json").write_text(
             json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
 
